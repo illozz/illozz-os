@@ -71,17 +71,15 @@ modules:
     configurations:
       - scope: user
         repo:
+          # you can override the title to make inclusion of both system and user repos clearer
           title: Flathub (user)
-      - notify: true # Send notification after install/uninstall is finished (true/false)
+      - notify: true
         scope: system
-        # If no repo information is specified, Flathub will be used by default
         repo:
           title: Flathub (system)
         install: # system flatpaks we want all users to have and not remove
-          - net.cozic.joplin_desktop
-          - com.rustdesk.RustDesk
-          #- org.mozilla.firefox
-          #- org.gnome.Loupe
+            - net.cozic.joplin_desktop
+            - com.rustdesk.RustDesk
 
 # 5. Scripts
   - type: script
