@@ -6,8 +6,8 @@ name: illozz-os
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 42 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/ublue-os/base-main
+image-version: 44 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -17,29 +17,86 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+# 1. RPM Fusion + FFmpeg full statt free
+  - type: dnf
+    repos:
+      rpmfusion: true
+    install:
+      packages:
+        - ffmpeg
+        - libavcodec-freeworld
+      remove:
+        - ffmpeg-free
+
+# 2. COPR Repos
   - type: dnf
     repos:
       copr:
         - atim/starship
+        - lionheartp/Hyprland
+        - theblackdon/kineticwe
+    install:
+      packages:
+        - starship
+        - kineticwe
+        - noctalia-git
+
+# 3. Fedora Repos
+  - type: dnf
     install:
       packages:
         - micro
-        - starship
+        - alacritty
+        - plasma-login-manager
+        - kcm-plasmalogin
+        - fuse
+        - fuse3
+        - spectacle
+        - kate
+        - mpv
+        - htop
+        - btop
+        - dolphin
+
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
         # "firefox" is the main package, "firefox-langpacks" is a dependency
-        - firefox
-        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+        #- firefox
+        #- firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
+# 4. Flatpaks
   - type: default-flatpaks
     configurations:
       - notify: true # Send notification after install/uninstall is finished (true/false)
         scope: system
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
-          - org.mozilla.firefox
-          - org.gnome.Loupe
+           - net.cozic.joplin_desktop
+           - com.rustdesk.RustDesk
+          #- org.mozilla.firefox
+          #- org.gnome.Loupe
       - scope: user # Also add Flathub user repo, but no user packages
+
+# 5. Scripts
+ - type: script
+   scripts:
+      - install-brave.sh
+      - install-iptvnator.sh
+
+# 6. Files
+#  - type: dnf
+#    repos:
+#      files:
+#        - brave-browser.repo
+#    install:
+#      packages:
+#        - brave-origin
+
+# 7. Systemd Aktivierungen
+  - type: systemd
+    system:
+      enable:
+        - plasmalogin.service
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
