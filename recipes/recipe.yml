@@ -20,8 +20,7 @@ modules:
 # 1. RPM Fusion + FFmpeg full statt free
   - type: dnf
     repos:
-      - https://download1.rpmfusion.org/free/fedora/rpmfusion-free.repo
-      - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree.repo
+      nonfree: rpmfusion
     install:
       packages:
         - ffmpeg
@@ -70,15 +69,19 @@ modules:
 # 4. Flatpaks
   - type: default-flatpaks
     configurations:
+      - scope: user
+        repo:
+          title: Flathub (user)
       - notify: true # Send notification after install/uninstall is finished (true/false)
         scope: system
         # If no repo information is specified, Flathub will be used by default
+        repo:
+          title: Flathub (system)
         install: # system flatpaks we want all users to have and not remove
           - net.cozic.joplin_desktop
           - com.rustdesk.RustDesk
           #- org.mozilla.firefox
           #- org.gnome.Loupe
-      - scope: user # Also add Flathub user repo, but no user packages
 
 # 5. Scripts
   - type: script
