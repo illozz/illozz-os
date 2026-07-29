@@ -69,15 +69,16 @@ modules:
 
 # 4. Flatpaks
   - type: default-flatpaks
-    - notify: true # Send notification after install/uninstall is finished (true/false)
-      scope: system
-      # If no repo information is specified, Flathub will be used by default
-      install: # system flatpaks we want all users to have and not remove
-        - net.cozic.joplin_desktop
-        - com.rustdesk.RustDesk
-        #- org.mozilla.firefox
-        #- org.gnome.Loupe
-    - scope: user # Also add Flathub user repo, but no user packages
+    configurations:
+      - notify: true # Send notification after install/uninstall is finished (true/false)
+        scope: system
+        # If no repo information is specified, Flathub will be used by default
+        install: # system flatpaks we want all users to have and not remove
+          - net.cozic.joplin_desktop
+          - com.rustdesk.RustDesk
+          #- org.mozilla.firefox
+          #- org.gnome.Loupe
+      - scope: user # Also add Flathub user repo, but no user packages
 
 # 5. Scripts
   - type: script
