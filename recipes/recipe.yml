@@ -18,16 +18,16 @@ modules:
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
 # 1. RPM Fusion + FFmpeg full statt free
-  - type: dnf
-    repos:
-      nonfree: rpmfusion
-    install:
-      packages:
-        - ffmpeg
-        - libavcodec-freeworld
-    remove:
-      packages:
-        - ffmpeg-free
+#  - type: dnf
+#    repos:
+#      nonfree: rpmfusion
+#    install:
+#      packages:
+#        - ffmpeg
+#        - libavcodec-freeworld
+#    remove:
+#      packages:
+#        - ffmpeg-free
 
 # 2. COPR Repos
   - type: dnf
