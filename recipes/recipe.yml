@@ -79,8 +79,8 @@ modules:
       - scope: user # Also add Flathub user repo, but no user packages
 
 # 5. Scripts
- - type: script
-   scripts:
+  - type: script
+    scripts:
       - install-brave.sh
       - install-iptvnator.sh
 
@@ -96,7 +96,7 @@ modules:
 # 7. Systemd Aktivierungen
   - type: systemd
     system:
-      enable:
+      enabled:
         - plasmalogin.service
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
