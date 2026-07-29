@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 set -oue pipefail
 
 RPM_URL=$(curl -s https://api.github.com/repos/4gray/iptvnator/releases/latest | \
