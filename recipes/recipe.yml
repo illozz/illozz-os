@@ -18,16 +18,10 @@ modules:
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
 # 1. RPM Fusion + FFmpeg full statt free
-#  - type: dnf
-#    repos:
-#      nonfree: rpmfusion
-#    install:
-#      packages:
-#        - ffmpeg
-#        - libavcodec-freeworld
-#    remove:
-#      packages:
-#        - ffmpeg-free
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+
 
 # 2. COPR Repos
   - type: dnf
@@ -57,6 +51,7 @@ modules:
         - btop
         - dolphin
         - geary
+        - zsh
 
 # 4. Flatpaks
   - type: default-flatpaks
@@ -88,7 +83,22 @@ modules:
 #      packages:
 #        - brave-origin
 
-# 7. Systemd Aktivierungen
+#7. Fonts
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode # don't add spaces or "Nerd Font" suffix
+        - Hack
+        - SourceCodePro
+        - Terminus
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
+      google-fonts:
+        - Roboto
+        - Open Sans
+        - Inter
+
+# 8. Systemd Aktivierungen
   - type: systemd
     system:
       enabled:
