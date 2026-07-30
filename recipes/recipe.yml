@@ -40,17 +40,20 @@ modules:
   - type: dnf
     install:
       packages:
-        - micro
         - alacritty
-        - plasma-login-manager
-        - kcm-plasmalogin
-        - spectacle
-        - kate
-        - mpv
-        - htop
         - btop
         - dolphin
+        - fastfetch
         - geary
+        - htop
+        - kate
+        - kcm-plasmalogin
+        - micro
+        - mpv
+        - plasma-login-manager
+        - spectacle
+        - tlp
+        - zoxide
         - zsh
 
 # 4. Flatpaks
@@ -103,5 +106,11 @@ modules:
     system:
       enabled:
         - plasmalogin.service
+
+# 9. Dotfiles
+  - type: chezmoi
+    repository: "https://github.com/illozz/dotfiles" # my dotfiles repo
+    all-users: true # make users have to enable chezmoi manually
+    file-conflict-policy: replace # override changed files with those from the repo
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
