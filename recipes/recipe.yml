@@ -109,7 +109,7 @@ modules:
 # 9. Dotfiles
   - type: chezmoi
     repository: "https://github.com/illozz/dotfiles" # my dotfiles repo
-    all-users: true # make users have to enable chezmoi manuall
+    all-users: true # make users have to enable chezmoi manually
     file-conflict-policy: replace # override changed files with those from the repo
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
