@@ -52,7 +52,6 @@ modules:
         - mpv
         - plasma-login-manager
         - spectacle
-        - tlp
         - zoxide
         - zsh
 
