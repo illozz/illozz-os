@@ -95,6 +95,7 @@ modules:
         - Terminus
         - JetBrainsMono
         - NerdFontsSymbolsOnly
+        - MesloLGS
       google-fonts:
         - Roboto
         - Open Sans
