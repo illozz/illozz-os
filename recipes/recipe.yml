@@ -50,14 +50,13 @@ modules:
         - alacritty
         - plasma-login-manager
         - kcm-plasmalogin
-        - fuse
-        - fuse3
         - spectacle
         - kate
         - mpv
         - htop
         - btop
         - dolphin
+        - geary
 
 # 4. Flatpaks
   - type: default-flatpaks
