@@ -20,12 +20,14 @@ modules:
 # 1. RPM Fusion + FFmpeg full statt free
   - type: dnf
     repos:
+      cleanup: true
       nonfree: rpmfusion
 
 
 # 2. COPR Repos
   - type: dnf
     repos:
+      cleanup: true
       copr:
         - atim/starship
         - lionheartp/Hyprland
@@ -54,6 +56,7 @@ modules:
         - spectacle
         - zoxide
         - zsh
+      cleanup: true
 
 # 4. Flatpaks
   - type: default-flatpaks
