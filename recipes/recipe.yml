@@ -40,8 +40,9 @@ modules:
 
 # 3. Fedora Repos
   - type: dnf
-    install:
+    repos:
       cleanup: true
+    install:
       packages:
         - alacritty
         - btop
