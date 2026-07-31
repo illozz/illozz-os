@@ -41,6 +41,7 @@ modules:
 # 3. Fedora Repos
   - type: dnf
     install:
+      cleanup: true
       packages:
         - alacritty
         - btop
@@ -56,7 +57,6 @@ modules:
         - spectacle
         - zoxide
         - zsh
-      cleanup: true
 
 # 4. Flatpaks
   - type: default-flatpaks
