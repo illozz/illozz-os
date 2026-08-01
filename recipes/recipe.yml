@@ -62,7 +62,6 @@ modules:
         - nodejs
         - plasma-discover
         - plasma-discover-packagekit
-        - packagekit
 
 # 4. Flatpaks
   - type: default-flatpaks
