@@ -44,25 +44,25 @@ modules:
       cleanup: true
     install:
       packages:
+        - PackageKit
         - alacritty
         - btop
         - dolphin
+        - evolution
         - fastfetch
-        - geary
         - htop
         - kate
         - kcm-plasmalogin
         - micro
         - mpv
+        - nodejs
+        - npm
+        - plasma-discover
+        - plasma-discover-packagekit
         - plasma-login-manager
         - spectacle
         - zoxide
         - zsh
-        - npm
-        - nodejs
-        - plasma-discover
-        - plasma-discover-packagekit
-        - PackageKit
 
 # 4. Flatpaks
   - type: default-flatpaks
