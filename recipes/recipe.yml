@@ -58,6 +58,11 @@ modules:
         - spectacle
         - zoxide
         - zsh
+        - npm
+        - nodejs
+        - plasma-discover
+        - plasma-discover-packagekit
+        - packagekit
 
 # 4. Flatpaks
   - type: default-flatpaks
@@ -79,6 +84,7 @@ modules:
     scripts:
       - install-brave.sh
       - install-iptvnator.sh
+      - install-yaml-language-server.sh
 
 # 6. Files
 #  - type: dnf
