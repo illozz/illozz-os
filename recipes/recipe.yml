@@ -44,7 +44,6 @@ modules:
       cleanup: true
     install:
       packages:
-        - PackageKit
         - alacritty
         - btop
         - dolphin
@@ -58,7 +57,7 @@ modules:
         - nodejs
         - npm
         - plasma-discover
-        - plasma-discover-packagekit
+        - plasam-discover-flatpak
         - plasma-login-manager
         - spectacle
         - zoxide
