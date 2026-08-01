@@ -77,15 +77,23 @@ modules:
         install: # system flatpaks we want all users to have and not remove
             - net.cozic.joplin_desktop
             - com.rustdesk.RustDesk
+# 5. rpm-ostree
+  - type: rpm-ostree
+    repos:
+      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+    keys:
+      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    install:
+      - brave-origin
 
-# 5. Scripts
+# 6. Scripts
   - type: script
     scripts:
-      - install-brave.sh
+#      - install-brave.sh
       - install-iptvnator.sh
       - install-yaml-language-server.sh
 
-# 6. Files
+# 7. Files
 #  - type: dnf
 #    repos:
 #      files:
@@ -94,7 +102,7 @@ modules:
 #      packages:
 #        - brave-origin
 
-#7. Fonts
+#8. Fonts
   - type: fonts
     fonts:
       nerd-fonts:
@@ -110,13 +118,13 @@ modules:
         - Open Sans
         - Inter
 
-# 8. Systemd Aktivierungen
+# 9. Systemd Aktivierungen
   - type: systemd
     system:
       enabled:
         - plasmalogin.service
 
-# 9. Dotfiles
+# 10. Dotfiles
   - type: chezmoi
     repository: "https://github.com/illozz/dotfiles" # my dotfiles repo
     all-users: true # make users have to enable chezmoi manually
