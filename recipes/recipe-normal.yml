@@ -1,0 +1,133 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: illozz-os-normal
+# description will be included in the image's metadata
+description: This is my personal OS image.
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/base-main
+image-version: latest # latest is also supported if you want new updates ASA
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+# 1. RPM Fusion + FFmpeg full statt free
+  - type: dnf
+    repos:
+      cleanup: true
+      nonfree: rpmfusion
+
+
+# 2. COPR Repos
+  - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        - atim/starship
+        - lionheartp/Hyprland
+        - theblackdon/kineticwe
+    install:
+      packages:
+        - starship
+        - kineticwe
+        - noctalia-git
+
+# 3. Fedora Repos
+  - type: dnf
+    repos:
+      cleanup: true
+    install:
+      packages:
+        - alacritty
+        - btop
+        - dolphin
+        - evolution
+        - fastfetch
+        - htop
+        - kate
+        - kcm-plasmalogin
+        - micro
+        - mpv
+        - nodejs
+        - npm
+        - plasma-discover
+        - plasma-discover-flatpak
+        - plasma-login-manager
+        - spectacle
+        - zoxide
+        - zsh
+
+# 4. Flatpaks
+  - type: default-flatpaks
+    configurations:
+      - scope: user
+        repo:
+          # you can override the title to make inclusion of both system and user repos clearer
+          title: Flathub (user)
+      - notify: true
+        scope: system
+        repo:
+          title: Flathub (system)
+        install: # system flatpaks we want all users to have and not remove
+            - net.cozic.joplin_desktop
+            - com.rustdesk.RustDesk
+# 5. rpm-ostree
+  - type: rpm-ostree
+    repos:
+      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+    keys:
+      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    install:
+      - brave-origin
+
+# 6. Scripts
+  - type: script
+    scripts:
+#      - install-brave.sh
+      - install-iptvnator.sh
+      - install-yaml-language-server.sh
+
+# 7. Files
+#  - type: dnf
+#    repos:
+#      files:
+#        - brave-browser.repo
+#    install:
+#      packages:
+#        - brave-origin
+
+#8. Fonts
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode # don't add spaces or "Nerd Font" suffix
+        - Hack
+        - SourceCodePro
+        - Terminus
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
+        - Meslo
+      google-fonts:
+        - Roboto
+        - Open Sans
+        - Inter
+
+# 9. Systemd Aktivierungen
+  - type: systemd
+    system:
+      enabled:
+        - plasmalogin.service
+
+# 10. Dotfiles
+  - type: chezmoi
+    repository: "https://github.com/illozz/dotfiles" # my dotfiles repo
+    all-users: true # make users have to enable chezmoi manually
+    file-conflict-policy: skip # override changed files with those from the repo
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
