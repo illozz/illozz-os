@@ -61,6 +61,14 @@ modules:
         - htop
         - git
         - digikam
+        - rawtherapee
+        #Virt-Manager
+        - virt-manager
+        - qemu-kvm
+        - libvirt
+        - virt-install
+        - virt-viewer
+        - edk2-ovmf
     remove:
       packages:
         - firefox
@@ -79,9 +87,20 @@ modules:
         - mariadb-cracklib-password-check
         - mariadb-gssapi-server
         # KDE Connect
-        #- kde-connect
-        #- kdeconnectd
-        #- kde-connect-libs
+        - kde-connect
+        - kdeconnectd
+        - kde-connect-libs
+        # KDE Apps
+        - kmail
+        - kwrite
+        - kontact
+        - plasma-drkonqi
+        # KDE PIM
+        - kf5-akonadi-server
+        - akonadi-server
+        - kf5-akonadi-server-mysql
+        - akonadi-server-mysql
+        - qt6-qtbase-mysql
 # 4. Flatpaks
   - type: default-flatpaks
     configurations:
@@ -96,6 +115,14 @@ modules:
         install: # system flatpaks we want all users to have and not remove
             - net.cozic.joplin_desktop
             - com.rustdesk.RustDesk
+        remove:
+            - org.kde.dolphin
+            - org.kde.elisa
+            - org.kde.kmahjongg
+            - org.kde.kmines
+            - org.kde.kolourpaint
+            - org.kde.krdc
+            - org.kde.skanpage
 # 5. rpm-ostree
   - type: rpm-ostree
     repos:
@@ -142,6 +169,9 @@ modules:
     system:
       enabled:
         - plasmalogin.service
+        #virt-manager
+        - virtqemud.service
+        - virtnetworkd.service
 
 # 10. Dotfiles
   - type: chezmoi
