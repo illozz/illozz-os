@@ -20,7 +20,7 @@ modules:
 # 1. RPM Fusion + FFmpeg full statt free
   - type: dnf
     repos:
-      cleanup: true
+      cleanup: false
       nonfree: rpmfusion
     install:
       packages:
@@ -29,7 +29,7 @@ modules:
 # 2. COPR Repos
   - type: dnf
     repos:
-      cleanup: true
+      cleanup: false
       copr:
         - atim/starship
         - lionheartp/Hyprland
@@ -45,7 +45,7 @@ modules:
 # 3. Fedora Repos
   - type: dnf
     repos:
-      cleanup: true
+      cleanup: false
     install:
       packages:
         - alacritty
