@@ -48,6 +48,7 @@ modules:
       cleanup: false
     install:
       packages:
+        - 7zip
         - alacritty
         - evolution
         - micro
@@ -59,6 +60,7 @@ modules:
         - btop
         - htop
         - git
+        - digikam
     remove:
       packages:
         - firefox
@@ -77,9 +79,9 @@ modules:
         - mariadb-cracklib-password-check
         - mariadb-gssapi-server
         # KDE Connect
-        - kde-connect
-        - kdeconnectd
-        - kde-connect-libs
+        #- kde-connect
+        #- kdeconnectd
+        #- kde-connect-libs
 # 4. Flatpaks
   - type: default-flatpaks
     configurations:

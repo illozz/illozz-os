@@ -44,6 +44,7 @@ modules:
       cleanup: true
     install:
       packages:
+        - 7zip
         - alacritty
         - btop
         - dolphin
