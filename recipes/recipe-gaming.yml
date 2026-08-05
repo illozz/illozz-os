@@ -42,9 +42,9 @@ modules:
         - noctalia-git
         - faugus-launcher
 
-  - type: script
-    scripts:
-      - remove-akonadi-noscripts.sh
+  #- type: script
+   # scripts:
+    #  - remove-akonadi-noscripts.sh
 
 # 3. Fedora Repos
   - type: dnf
@@ -83,15 +83,15 @@ modules:
         - waydroid
         - waydroid-selinux
         - input-remapper
-        - mariadb
-        - mariadb-server
-        - mariadb-common
-        - mariadb-errmsg
-        - mariadb-connector-c
-        - mariadb-connector-c-config
-        - mariadb-backup
-        - mariadb-cracklib-password-check
-        - mariadb-gssapi-server
+        #- mariadb
+        #- mariadb-server
+        #- mariadb-common
+        #- mariadb-errmsg
+        #- mariadb-connector-c
+        #- mariadb-connector-c-config
+        #- mariadb-backup
+        #- mariadb-cracklib-password-check
+        #- mariadb-gssapi-server
         # KDE Connect
         - kde-connect
         - kdeconnectd
