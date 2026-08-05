@@ -42,6 +42,10 @@ modules:
         - noctalia-git
         - faugus-launcher
 
+  - type: script
+    scripts:
+      - remove-akonadi-noscripts.sh
+
 # 3. Fedora Repos
   - type: dnf
     repos:
@@ -135,7 +139,7 @@ modules:
 #      - install-brave.sh
       - install-iptvnator.sh
       - install-yaml-language-server.sh
-      - remove-akonadi-noscripts.sh
+      #- remove-akonadi-noscripts.sh
 
 # 7. Files
 #  - type: dnf
