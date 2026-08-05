@@ -71,6 +71,12 @@ modules:
         - edk2-ovmf
     remove:
       packages:
+      # KDE PIM
+        - kf5-akonadi-server
+        - akonadi-server
+        - kf5-akonadi-server-mysql
+        - akonadi-server-mysql
+        - qt6-qtbase-mysql
         - firefox
         - firefox-langpacks
         - lutris
@@ -95,12 +101,7 @@ modules:
         - kwrite
         - kontact
         - plasma-drkonqi
-        # KDE PIM
-        - kf5-akonadi-server
-        - akonadi-server
-        - kf5-akonadi-server-mysql
-        - akonadi-server-mysql
-        - qt6-qtbase-mysql
+
 # 4. Flatpaks
   - type: default-flatpaks
     configurations:
