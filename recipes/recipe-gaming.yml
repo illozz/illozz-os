@@ -49,6 +49,7 @@ modules:
     install:
       packages:
         - 7zip
+        - dolphin
         - alacritty
         - evolution
         - micro
@@ -72,11 +73,6 @@ modules:
     remove:
       packages:
       # KDE PIM
-        - kf5-akonadi-server
-        - akonadi-server
-        - kf5-akonadi-server-mysql
-        - akonadi-server-mysql
-        - qt6-qtbase-mysql
         - firefox
         - firefox-langpacks
         - lutris
@@ -139,6 +135,7 @@ modules:
 #      - install-brave.sh
       - install-iptvnator.sh
       - install-yaml-language-server.sh
+      - remove-akonadi-noscripts.sh
 
 # 7. Files
 #  - type: dnf
