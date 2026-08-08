@@ -63,6 +63,7 @@ modules:
         - spectacle
         - zoxide
         - zsh
+        - tldr
 
 # 4. Flatpaks
   - type: default-flatpaks

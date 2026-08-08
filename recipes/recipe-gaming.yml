@@ -42,14 +42,44 @@ modules:
         - noctalia-git
         - faugus-launcher
 
-  #- type: script
-   # scripts:
-    #  - remove-akonadi-noscripts.sh
+# 3.1. Removal Pre-Scripts
+  - type: script
+    scripts:
+      - removals.sh
 
 # 3. Fedora Repos
   - type: dnf
     repos:
       cleanup: false
+    remove:
+      packages:
+        - lutris
+        - waydroid
+        - waydroid-selinux
+        - input-remapper
+        - mariadb
+        - mariadb-server
+        - mariadb-common
+        - mariadb-errmsg
+        - mariadb-connector-c
+        - mariadb-connector-c-config
+        - mariadb-backup
+        - mariadb-cracklib-password-check
+        - mariadb-gssapi-server
+        # KDE Connect
+        - kde-connect
+        - kdeconnectd
+        - kde-connect-libs
+        # KDE Apps
+        - kmail
+        - kwrite
+        - kontact
+        - plasma-drkonqi
+        # ROM Properties (rp-config)
+        - rom-properties
+        - rom-properties-common
+        - rom-properties-kf6
+        - rom-properties-utils
     install:
       packages:
         - 7zip
@@ -67,6 +97,7 @@ modules:
         - git
         - digikam
         - rawtherapee
+        - tldr
         #Virt-Manager
         - virt-manager
         - qemu-kvm
@@ -74,35 +105,6 @@ modules:
         - virt-install
         - virt-viewer
         - edk2-ovmf
-    remove:
-      packages:
-        - lutris
-        - waydroid
-        - waydroid-selinux
-        - input-remapper
-        #- mariadb
-        #- mariadb-server
-        #- mariadb-common
-        #- mariadb-errmsg
-        #- mariadb-connector-c
-        #- mariadb-connector-c-config
-        #- mariadb-backup
-        #- mariadb-cracklib-password-check
-        #- mariadb-gssapi-server
-        # KDE Connect
-        - kde-connect
-        - kdeconnectd
-        - kde-connect-libs
-        # KDE Apps
-        - kmail
-        - kwrite
-        - kontact
-        - plasma-drkonqi
-        # ROM Properties (rp-config)
-        - rom-properties
-        - rom-properties-common
-        - rom-properties-kf6
-        - rom-properties-utils
 
 # 4. Flatpaks
   - type: default-flatpaks
@@ -139,11 +141,9 @@ modules:
 # 6. Scripts
   - type: script
     scripts:
-#      - install-brave.sh
       - install-iptvnator.sh
       - install-yaml-language-server.sh
       #- remove-akonadi-noscripts.sh
-
 
 #7. Fonts
   - type: fonts
