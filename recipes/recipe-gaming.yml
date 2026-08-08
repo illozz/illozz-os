@@ -45,6 +45,7 @@ modules:
 # 3.1. Removal Pre-Scripts
   - type: script
     scripts:
+      - remove-akonadi-noscripts.sh
       - removals.sh
 
 # 3. Fedora Repos
@@ -143,7 +144,6 @@ modules:
     scripts:
       - install-iptvnator.sh
       - install-yaml-language-server.sh
-      #- remove-akonadi-noscripts.sh
 
 #7. Fonts
   - type: fonts
