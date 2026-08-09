@@ -133,16 +133,19 @@ modules:
             - org.kde.skanpage
             - org.mozilla.firefox
 # 5. rpm-ostree
-  - type: rpm-ostree
-    repos:
-      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-    keys:
-      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-    install:
-      - brave-origin
+#  - type: rpm-ostree
+#    repos:
+#      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+#    keys:
+#      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+#    install:
+#      - brave-origin
 
 # 6. Scripts
   - type: script
+    snippets:
+      - "curl -f https://zed.dev/install.sh | sh"
+      - "curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh"
     scripts:
       - install-iptvnator.sh
       - install-yaml-language-server.sh
