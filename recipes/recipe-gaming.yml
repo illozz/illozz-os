@@ -72,10 +72,7 @@ modules:
         - kdeconnectd
         - kde-connect-libs
         # KDE Apps
-        - kmail
         - kwrite
-        - kontact
-        - plasma-drkonqi
         # ROM Properties (rp-config)
         - rom-properties
         - rom-properties-common
@@ -87,7 +84,7 @@ modules:
         - dolphin
         - alacritty
         - evolution
-        - micro
+        - helix
         - mpv
         - nodejs
         - npm

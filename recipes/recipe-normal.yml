@@ -20,14 +20,14 @@ modules:
 # 1. RPM Fusion + FFmpeg full statt free
   - type: dnf
     repos:
-      cleanup: true
+      cleanup: false
       nonfree: rpmfusion
 
 
 # 2. COPR Repos
   - type: dnf
     repos:
-      cleanup: true
+      cleanup: false
       copr:
         - atim/starship
         - lionheartp/Hyprland
@@ -41,7 +41,7 @@ modules:
 # 3. Fedora Repos
   - type: dnf
     repos:
-      cleanup: true
+      cleanup: false
     install:
       packages:
         - 7zip
@@ -53,7 +53,7 @@ modules:
         - htop
         - kate
         - kcm-plasmalogin
-        - micro
+        - helix
         - mpv
         - nodejs
         - npm
@@ -82,29 +82,22 @@ modules:
             - net.cozic.joplin_desktop
             - com.rustdesk.RustDesk
 # 5. rpm-ostree
-  - type: rpm-ostree
-    repos:
-      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-    keys:
-      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-    install:
-      - brave-origin
+#  - type: rpm-ostree
+#    repos:
+#      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+#    keys:
+#      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+#    install:
+#      - brave-origin
 
 # 6. Scripts
   - type: script
+    snippets:
+      - "curl -f https://zed.dev/install.sh | sh"
+      - "curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh"
     scripts:
-#      - install-brave.sh
       - install-iptvnator.sh
       - install-yaml-language-server.sh
-
-# 7. Files
-#  - type: dnf
-#    repos:
-#      files:
-#        - brave-browser.repo
-#    install:
-#      packages:
-#        - brave-origin
 
 #8. Fonts
   - type: fonts
