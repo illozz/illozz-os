@@ -99,6 +99,8 @@ modules:
         - digikam
         - rawtherapee
         - tldr
+        - qt5ct
+        - qt6ct
         #Virt-Manager
         - virt-manager
         - qemu-kvm

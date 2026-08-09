@@ -64,6 +64,8 @@ modules:
         - zoxide
         - zsh
         - tldr
+        - qt5ct
+        - qt6ct
 
 # 4. Flatpaks
   - type: default-flatpaks
