@@ -1,0 +1,13 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: dnf
+    repos:
+      cleanup: false
+    install:
+      packages:
+        - 7zip
+        - nodejs
+        - npm
+        - git

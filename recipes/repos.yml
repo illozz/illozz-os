@@ -1,0 +1,18 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: dnf
+    repos:
+      cleanup: false
+      copr:
+        enable:
+          - atim/starship
+          - lionheartp/Hyprland
+          - theblackdon/kineticwe
+          - faugus/faugus-launcher
+  # 1. RPM Fusion + FFmpeg full statt free
+  - type: dnf
+    repos:
+      cleanup: false
+      nonfree: rpmfusion

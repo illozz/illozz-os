@@ -1,0 +1,20 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: dnf
+    repos:
+      cleanup: false
+    install:
+      packages:
+        - qemu-system-x86      # qemu-system-x86_64 / i386 emulators
+        - qemu-img             # disk creation + snapshots
+        - swtpm                # TPM 2.0 emulation (Windows 11 VMs)
+        - edk2-ovmf            # UEFI/OVMF firmware
+        - virt-viewer          # spice-app display backend + clipboard sharing
+        - passt
+        - vm-curator          # RPM name; the COPR is named lgl-vm-curator but ships package "vm-curator"
+        # Non-x86 emulators for retro/exotic OS profiles (enable if wanted):
+        # - qemu-system-ppc     # Mac OS X PowerPC profiles
+        # - qemu-system-aarch64 # ARM guests
+        # - qemu-system-m68k    # Classic Mac OS (System 6-9)

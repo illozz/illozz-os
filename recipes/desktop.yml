@@ -1,0 +1,26 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: dnf
+    repos:
+      cleanup: false
+    install:
+      packages:
+        - dolphin
+        - alacritty
+        - evolution
+        - mpv
+        - digikam
+        - rawtherapee
+        - qt5ct
+        - qt6ct
+        - kineticwe
+        - noctalia-git
+  - type: script
+    snippets:
+      - "curl -f https://zed.dev/install.sh | sh"
+      - "curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh"
+    scripts:
+      - install-iptvnator.sh
+      - install-yaml-language-server.sh

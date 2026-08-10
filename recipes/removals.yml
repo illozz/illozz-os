@@ -1,0 +1,56 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+# 3.1. Removal Pre-Scripts
+  - type: script
+    scripts:
+      - remove-akonadi-noscripts.sh
+      - removals.sh
+
+# 3. Fedora Repos
+  - type: dnf
+    repos:
+      cleanup: false
+    remove:
+      packages:
+        - lutris
+        - waydroid
+        - waydroid-selinux
+        - input-remapper
+        - mariadb
+        - mariadb-server
+        - mariadb-common
+        - mariadb-errmsg
+        - mariadb-connector-c
+        - mariadb-connector-c-config
+        - mariadb-backup
+        - mariadb-cracklib-password-check
+        - mariadb-gssapi-server
+        # KDE Connect
+        - kde-connect
+        - kdeconnectd
+        - kde-connect-libs
+        # KDE Apps
+        - kwrite
+        # ROM Properties (rp-config)
+        - rom-properties
+        - rom-properties-common
+        - rom-properties-kf6
+        - rom-properties-utils
+#Flatpak 
+  - type: default-flatpaks
+    configurations:
+      - notify: true
+        scope: system
+        repo:
+          title: Flathub (system)
+        remove:
+            - org.kde.dolphin
+            - org.kde.elisa
+            - org.kde.kmahjongg
+            - org.kde.kmines
+            - org.kde.kolourpaint
+            - org.kde.krdc
+            - org.kde.skanpage
+            - org.mozilla.firefox

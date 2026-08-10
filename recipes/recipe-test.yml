@@ -1,0 +1,46 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: illozz-os-gaming
+# description will be included in the image's metadata
+description: This is my personal Gaming OS image.
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/bazzite
+image-version: latest # latest is also supported if you want new updates ASA
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+# Module Files
+  - from-file: repos.yml
+  - from-file: removals.yml
+  - from-file: desktop.yml
+  - from-file: common.yml
+  - from-file: fonts.yml
+  - from-file: cli.yml
+  - from-file: flatpak.yml
+  - from-file: gaming.yml
+  - from-file: virt.yml
+    
+# 8. Systemd Aktivierungen
+  - type: systemd
+    system:
+      enabled:
+        - plasmalogin.service
+        #virt-manager
+        - virtqemud.service
+        - virtnetworkd.service
+
+# 10. Dotfiles
+  - type: chezmoi
+    repository: "https://github.com/illozz/dotfiles" # my dotfiles repo
+    all-users: true # make users have to enable chezmoi manually
+    file-conflict-policy: skip # override changed files with those from the repo
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
