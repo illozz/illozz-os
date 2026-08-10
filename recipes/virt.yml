@@ -7,6 +7,10 @@ modules:
       cleanup: false
     install:
       packages:
+        - virt-manager
+        - qemu-kvm
+        - libvirt
+        - virt-install
         - qemu-system-x86      # qemu-system-x86_64 / i386 emulators
         - qemu-img             # disk creation + snapshots
         - swtpm                # TPM 2.0 emulation (Windows 11 VMs)
