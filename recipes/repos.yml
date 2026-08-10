@@ -10,6 +10,7 @@ modules:
           - atim/starship
           - lionheartp/Hyprland
           - theblackdon/kineticwe
+          - linuxgamerlife/lgl-vm-curator
           - faugus/faugus-launcher
   # 1. RPM Fusion + FFmpeg full statt free
   - type: dnf
