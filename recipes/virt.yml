@@ -18,8 +18,8 @@ modules:
         # - qemu-system-ppc     # Mac OS X PowerPC profiles
         # - qemu-system-aarch64 # ARM guests
         # - qemu-system-m68k    # Classic Mac OS (System 6-9)
-  - type: systemd
-    system:
-      enabled:
-        - virtqemud.service
-        - virtnetworkd.service
+  #- type: systemd
+  #  system:
+  #    enabled:
+  #      - virtqemud.service
+  #      - virtnetworkd.service

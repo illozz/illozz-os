@@ -29,13 +29,13 @@ modules:
   - from-file: virt.yml
 
 # 8. Systemd Aktivierungen
-#  - type: systemd
-#    system:
-#      enabled:
-#        - plasmalogin.service
-#        #virt-manager
-#        - virtqemud.service
-#        - virtnetworkd.service
+  - type: systemd
+    system:
+      enabled:
+        - plasmalogin.service
+        #virt-manager
+        - virtqemud.service
+        - virtnetworkd.service
 
 # 10. Dotfiles
   - type: chezmoi

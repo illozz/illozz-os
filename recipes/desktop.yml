@@ -25,7 +25,7 @@ modules:
       - install-iptvnator.sh
       - install-yaml-language-server.sh
   # 8. Systemd Aktivierungen
-  - type: systemd
-    system:
-      enabled:
-        - plasmalogin.service
+  #- type: systemd
+  #  system:
+  #    enabled:
+  #      - plasmalogin.service
