@@ -66,6 +66,9 @@ modules:
         - tldr
         - qt5ct
         - qt6ct
+    remove:
+      packages:
+        - plasma-discover-packagekit
 
 # 4. Flatpaks
   - type: default-flatpaks

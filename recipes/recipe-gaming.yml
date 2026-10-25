@@ -78,6 +78,8 @@ modules:
         - rom-properties-common
         - rom-properties-kf6
         - rom-properties-utils
+        #Discover PackageKit
+        - plasma-discover-packagekit
     install:
       packages:
         - 7zip
